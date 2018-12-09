@@ -1,4 +1,9 @@
-﻿using System;
+﻿/**
+ * Copyright (C) 2017 Patrick Mours. All rights reserved.
+ * License: https://github.com/crosire/fritzbox-extcap#license
+ */
+
+using System;
 using System.IO;
 
 class Program

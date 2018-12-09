@@ -1,4 +1,9 @@
-﻿using System.IO;
+﻿/**
+ * Copyright (C) 2017 Patrick Mours. All rights reserved.
+ * License: https://github.com/crosire/fritzbox-extcap#license
+ */
+
+using System.IO;
 using System.Net;
 using System.Security.Authentication;
 using System.Security.Cryptography;
