@@ -5,6 +5,13 @@
 
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
+
+class Win32
+{
+	[DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+	internal static extern Microsoft.Win32.SafeHandles.SafeFileHandle CreateFile(string lpFileName, uint dwDesiredAccess, uint dwShareMode, IntPtr SecurityAttributes, uint dwCreationDisposition, uint dwFlagsAndAttributes, IntPtr hTemplateFile);
+}
 
 class Program
 {
@@ -71,7 +78,7 @@ class Program
 		{
 			var fifoHandle = Win32.CreateFile(fifo, 0x40000000, 0, IntPtr.Zero, 3, 0, IntPtr.Zero);
 
-			using (FileStream file = new FileStream(fifoHandle, FileAccess.Write))
+			using (var file = new FileStream(fifoHandle, FileAccess.Write))
 			{
 				var session = FritzBoxSession.Login(username, password);
 
